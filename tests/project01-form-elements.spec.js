@@ -34,8 +34,9 @@ test.describe('TG Form Elements', () => {
     5 Validate that the placeholder of the Full name input box is “Enter your full name”
     */
     test.only('[TC02] Validate the Full name input box', async ({ page }) => {
-
-
+        await expect(page.getByPlaceholder('Enter your full name')).toBeVisible()
+        await expect(page.getByPlaceholder('Enter your full name')).toHaveAttribute('required')
+        await expect(page.locator('[for="name"]')).toHaveText('Full name *')
     })
 })
 
